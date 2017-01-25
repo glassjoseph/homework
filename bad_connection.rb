@@ -18,15 +18,42 @@
 
 #First, Customer Service Representative (CSR) will introduce themselves, saying "HELLO? THIS IS A GROCERY STORE?"
 
+said_goodbye = false
+puts "HELLO? THIS IS A GROCERY STORE?"
+while true
 
-    #Program then prompts for user response. 
-  
+     #Program then prompts for user response. 
+    user_response = gets.chomp
+
+    if user_response == "GOODBYE!"
+        if said_goodbye == false
+            puts "ANYTHING ELSE I CAN HELP YOU WITH?"
+            said_goodbye = true 
+            
+
+        elsif said_goodbye == true
+            puts "THANK YOU FOR CALLING!"
+            break
+        end
+    
 
     #if user's response is empty, CSR will respond "HELLO?!"
+    elsif user_response == ""
+        puts "HELLO?"
+                                    
+                
+                #elsif the response has *any* lower-case letters a-z, then CSR responds "I AM HAVING A HARD TIME HEARING YOU."
+                #elsif user_response.include?("a".."z")    **** Is there a way to check this range on a string?
+    
 
-    #else if the response has *any* lower-case letters a-z, then CSR responds "I AM HAVING A HARD TIME HEARING YOU."
-    #elsif user_response.includes?("a".."z")    **** Is there a way to check this range on a string?
+    #else if the response is all uppercase, CSR responds "NO, THIS IS NOT A PET STORE."
+    elsif user_response == user_response.upcase
+        puts "NO, THIS IS NOT A PET STORE."
 
+    elsif user_response != user_response.upcase
+        puts "I AM HAVING A HARD TIME HEARING YOU."
+    end
+end
 
 #first time user says "GOODBYE!", CSR responds "ANYTHING ELSE I CAN HELP YOU WITH?", then set a goodbye_counter variable equal to true
 #on the second "GOODBYE!" from user, CSR says "THANK YOU FOR CALLING!" and exits the program. 
